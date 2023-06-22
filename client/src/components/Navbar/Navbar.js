@@ -37,7 +37,7 @@ export default function Navbar(){
         <Link to="/" className={classes.brandContainer}>
             <img className={classes.image} src={oasis} alt="icon" height="40px" />
         </Link>
-        <Typography  component={Link} to = '/' className = {classes.heading} variant = 'h2' allign='center'>Oasis</Typography>
+        <Typography  component={Link} to = '/' className = {classes.heading} variant = 'h2' allign='center'>SnapShare</Typography>
         
         <Toolbar className={classes.toolbar}>
             {user?.result ? (
