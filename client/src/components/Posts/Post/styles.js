@@ -20,6 +20,11 @@ export default makeStyles({
     borderRadius: '15px',
     height: '100%',
     position: 'relative',
+    transition: 'transform 0.3s', // Add a smooth transition effect for the raised effect
+    '&:hover': {
+      transform: 'scale(1.07)', // Move the card up by 5px on hover
+      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', // Add a box shadow on hover
+    },
   },
   overlay: {
     position: 'absolute',

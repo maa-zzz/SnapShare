@@ -3,7 +3,10 @@ import { deepPurple } from '@material-ui/core/colors';
 
 export default makeStyles((theme) => ({
   appBar: {
-    backgroundColor: "#94d8a8",
+    backgroundColor: 'transparent',
+    backgroundImage: `url(https://e0.pxfuel.com/wallpapers/530/591/desktop-wallpaper-dark-wood-anband-mahogany.jpg)`,
+    backgroundSize: 'cover', // Optional: This will cover the entire app bar with the background image.
+    backgroundPosition: 'center',
     borderRadius: 15,
     margin: '30px 0',
     display: 'flex',
@@ -16,10 +19,10 @@ export default makeStyles((theme) => ({
     },
   },
   heading: {
-    color: "#258730",
+    color: "#eeeeee",
     textDecoration: 'none',
     fontSize: '2em',
-    fontWeight: 300,
+    fontWeight: 500,
   },
   image: {
     marginLeft: '0px',
