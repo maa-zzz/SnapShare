@@ -10,7 +10,8 @@ import "./index.css"
 const store = createStore(reducers, compose(applyMiddleware(thunk)));
 
 ReactDOM.render(
-    <Provider store={store}>
+    <Provider store={store}> 
+    {/* for reducer state use provider to share */}
       <App />
     </Provider>,
     document.getElementById('root'),

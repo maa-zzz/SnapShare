@@ -8,7 +8,7 @@ import { START_LOADING, END_LOADING, FETCH_ALL, FETCH_POST, FETCH_BY_SEARCH, CRE
 import * as api from '../api/index.js';
 
 // get post by particular id 
-export const getPost = (id) => async (dispatch) => {
+export const getPost = (id) => async (dispatch) => { //use redux thunk for this
   try {
     // block of code to try 
     dispatch({ type: START_LOADING });

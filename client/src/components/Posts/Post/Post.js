@@ -58,13 +58,14 @@ const Post = ({ post, setCurrentId }) => {
           <Button style={{ color: 'white' }} size="small" onClick={() => setCurrentId(post._id)}><MoreHorizIcon fontSize="medium" /></Button>
         </div>
       )}
-      <div className={classes.details}>
-        <Typography variant="body2" color="textSecondary" component="h2">{post.tags.map((tag) => `#${tag} `)}</Typography>
-      </div>
+      <div><br></br></div>
       <Typography className={classes.title} gutterBottom variant="h5" component="h2">{post.title}</Typography>
       <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">{post.message}</Typography>
+        <Typography variant="body2" color="#e6c7a8" component="p">{post.message}</Typography>
       </CardContent>
+      <div className={classes.details}>
+        <Typography variant="body2" color="#e6c7a8" component="h2">{post.tags.map((tag) => `#${tag} `)}</Typography>
+      </div>
       <CardActions className={classes.cardActions}>
         <Button size="small" color="primary" disabled={!user?.result} onClick={handleLike}> <Likes/> </Button>
         {(user?.result?.googleId === post?.creator || user?.result?._id === post?.creator) && (

@@ -1,3 +1,19 @@
 body{
-    background-image: url("https://e1.pxfuel.com/desktop-wallpaper/526/124/desktop-wallpaper-backround-best-black-and-green-go-black-slytherin.jpg");
+    background-color: #292521;
+    /* do monkey type yellow black */
 }
+
+:root {
+    /*Personal preference: 'flip test colors'= on*/
+    --bg-color: #292521;
+    --main-color: #509452;
+    --caret-color: #1298ba;
+    --sub-color: #f5ae2d;
+    --sub-alt-color: #1d1b18;
+    --text-color: #e6c7a8;
+    --error-color: #7e2a33;
+    --error-extra-color: #ff645a;
+    --colorful-error-color: #7e2a33;
+    --colorful-error-extra-color: #ff645a;
+    --mainColor: #509452;
+  }
