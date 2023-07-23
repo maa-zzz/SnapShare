@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 
-const API = axios.create({baseURL: 'http://localhost:5000'});
+const API = axios.create({baseURL: 'https://snap-share-peach.vercel.app/'});
 // const url = 'http://localhost:5000/posts';
 //implementing redux
 API.interceptors.request.use((req)=>{
