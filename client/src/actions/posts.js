@@ -83,7 +83,7 @@ export const createPost = (post, history) => async (dispatch) => {
     const { data } = await api.createPost(post);
 
     dispatch({ type: CREATE, payload: data });
-
+      //refresh after creating a new post
     history.push(`/posts/${data._id}`);
   } catch (error) {
     //  block of code to handle errors
@@ -133,6 +133,7 @@ export const deletePost = (id) => async (dispatch) => {
     // callling delete method to delete post with id
     await await api.deletePost(id);
     dispatch({ type: DELETE, payload: id });
+    //infrom redux store that item is deleted
   } catch (error) {
     //  block of code to handle errors
     console.log(error);

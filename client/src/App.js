@@ -8,7 +8,7 @@ import Auth from './components/Auth/Auth';
 import PostDetails from './components/PostDetails/PostDetails';
 
 export default function App(){ 
-    const user = JSON.parse(localStorage.getItem(`profile`));
+    const user = JSON.parse(localStorage.getItem(`profile`)); //thank you redux I love you
     return(
         <BrowserRouter>
         <Container maxWidth = 'xl'>

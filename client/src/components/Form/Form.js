@@ -11,6 +11,7 @@ const Form = ({ currentId, setCurrentId }) => {
   
   const [postData, setPostData] = useState({ title: '', message: '', tags: [], selectedFile: '' });
   const post = useSelector((state) => (currentId ? state.posts.posts.find((message) => message._id === currentId) : null)); //did only one state.post idiot
+  //only find specific id in terms of edit
   const dispatch = useDispatch();
   const classes = useStyles();
   const user = JSON.parse(localStorage.getItem('profile'));
@@ -18,7 +19,7 @@ const Form = ({ currentId, setCurrentId }) => {
   useEffect(() => {
     if (post) setPostData(post);
   }, [post]);
-
+  //when post chages from nothing to the arrray run use effect and populate with  post data
   const clear = () => {
     setCurrentId(0);
     setPostData({title: '', message: '', tags: '', selectedFile: '' });
@@ -26,10 +27,12 @@ const Form = ({ currentId, setCurrentId }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    //prevents refresh
 
     if (currentId === 0) {
       dispatch(createPost({...postData, name: user?.result?.name, history})); 
       // ... means all data stays just the one that is specified
+      //dispatch from redux helps 
       // history.push('/posts/$0')
       clear();
     } else {
@@ -57,6 +60,7 @@ const Form = ({ currentId, setCurrentId }) => {
         <TextField name="title" variant="outlined" label="Title" fullWidth value={postData.title} onChange={(e) => setPostData({ ...postData, title: e.target.value })} />
         <TextField name="message" variant="outlined" label="Message" fullWidth multiline minRows={4} value={postData.message} onChange={(e) => setPostData({ ...postData, message: e.target.value })} />
         <TextField name="tags" variant="outlined" label="Tags (coma separated)" fullWidth value={postData.tags} onChange={(e) => setPostData({ ...postData, tags: e.target.value.split(',') })} />
+        {/* make all tags as an array */}
         <div className={classes.fileInput}><FileBase type="file" multiple={false} onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })} /></div> 
         {/* image conversion */}
         <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>

@@ -27,7 +27,7 @@ const Post = ({ post, setCurrentId }) => {
       setLikes(post.likes.filter((id) => id !== userId));
     } 
     else {
-      setLikes([...post.likes, userId]);
+      setLikes([...post.likes, userId]); //add on the existing likes
     }
   };
 
