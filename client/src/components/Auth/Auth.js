@@ -23,7 +23,7 @@ export default function Auth(){
     
     
     const handleSubmit = (e) =>{
-        e.preventDefault(); //to prevent reload
+        e.preventDefault(); //to prevent reload on default
         console.log(formData);
         if(isSignUp){
             dispatch(signup(formData, history));
@@ -88,7 +88,7 @@ export default function Auth(){
                             color="primary" 
                             fullWidth 
                             onClick={renderProps.onClick} 
-                            disabled={renderProps.disabled} 
+                            disabled={renderProps.disabled}  
                             startIcon = {<Icon/>}
                             variant = "contained"
                             >                         

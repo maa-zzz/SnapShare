@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardActions, CardContent, CardMedia, Button, Typography } from '@material-ui/core/';
+import { Card, CardActions, CardContent, CardMedia, Button, Typography,ButtonBase } from '@material-ui/core/';
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import ThumbUpAltOutlined from '@material-ui/icons/ThumbUpAltOutlined';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -10,16 +10,17 @@ import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { likePost, deletePost } from '../../../actions/posts';
 import useStyles from './styles';
+// import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 const Post = ({ post, setCurrentId }) => {
   const user = JSON.parse(localStorage.getItem('profile'));
   const [likes, setLikes] = useState(post?.likes);
+  ///send to middleware see if it is liked by the same person or not and then proceed
   const dispatch = useDispatch();
   const history = useHistory();
   const classes = useStyles();
   const userId = user?.result.googleId || user?.result?._id;
   const hasLikedPost = post.likes.find((like) => like === userId);
-
   const handleLike = async () => {
     dispatch(likePost(post._id));
 
@@ -31,6 +32,12 @@ const Post = ({ post, setCurrentId }) => {
     }
   };
 
+  const openPost = (e) => {
+    // dispatch(getPost(post._id, history));
+
+    history.push(`/posts/${post._id}`);
+  };
+  
   const Likes = () => {
     if (likes.length > 0) {
       return likes.find((like) => like === userId) // checking user Id for one like per person
@@ -47,7 +54,11 @@ const Post = ({ post, setCurrentId }) => {
 
 
   return (
-    <Card className={classes.card}>
+    <Card className={classes.card} raised elevation={6}>
+      <ButtonBase className = {classes.cardAction}
+        onClick = {openPost}>
+
+      
       <CardMedia className={classes.media} image={post.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} title={post.title} />
       <div className={classes.overlay}>
         <Typography variant="h6">{post.name}</Typography>
@@ -63,6 +74,7 @@ const Post = ({ post, setCurrentId }) => {
       <CardContent>
         <Typography variant="body2" color="#e6c7a8" component="p">{post.message}</Typography>
       </CardContent>
+      </ButtonBase>
       <div className={classes.details}>
         <Typography variant="body2" color="#e6c7a8" component="h2">{post.tags.map((tag) => `#${tag} `)}</Typography>
       </div>

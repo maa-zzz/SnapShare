@@ -30,6 +30,7 @@ export default function Home(){
     const [tags, setTags] = useState([]);
     const handleKeyPress = (e) => { //accepts event 
         if (e.keyCode === 13) {
+            //search post code 13 is enter
             searchPost();
         }
       };
@@ -77,8 +78,8 @@ export default function Home(){
             </AppBar>
             <Form currentId={currentId} setCurrentId={setCurrentId} />       
                         <Paper>     
-                            <Pagination />
-                            {/* <Pagination page={page} /> */}
+                            {/* <Pagination /> */}
+                            <Pagination page={page} />
                         </Paper>
                     </Grid>
                 </Grid>

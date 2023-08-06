@@ -20,6 +20,7 @@ export default function Input({name, label ,handleChange, half, autoFocus, type,
                 type = {type}
                 // className="MuiInputBase-input MuiOutlinedInput-input"
                 InputProps = {name==='password'? {
+                    //instead of ? can just do && and no null needed hehe
                     endAdornment:(
                         <InputAdornment position ='end'>
                             <IconButton onClick={handleShowPassword}>
